@@ -18,8 +18,9 @@ app.use(express.json()); // Parses incoming JSON
 
 async function main() {
   await mongoose.connect(process.env.MONGODB_URI);
-  app.use('/', res => {
-    res.send('crudMERN Server is running!')
+  app.use('/', (req, res) => {
+    req.send('crudMERN Server is running!');
+    res.send('crudMERN Server is running!');
   });
 }
 
