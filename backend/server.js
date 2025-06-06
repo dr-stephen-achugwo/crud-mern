@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
-// import 'dotenv/config';
 
 
 const app = express();
@@ -17,13 +16,14 @@ app.use(cors({
 
 app.use(express.json()); // Parses incoming JSON
 
-const url = process.env.MONGODB_URI;
+async function main() {
+  await mongoose.connect(process.env.MONGODB_URI);
+  app.use('/', res => {
+    res.send('crudMERN Server is running!')
+  });
+}
 
-// MongoDB connection
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+main().then(() => console.log("Mongodb connected successfully!")).catch(err => console.log(err));
 
 // Mongoose Schema & Model
 const UserSchema = new mongoose.Schema({
