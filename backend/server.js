@@ -34,7 +34,7 @@ main().then(() => console.log("Mongodb connected successfully!")).catch(err => c
 // Mongoose Schema & Model
 const UserSchema = new mongoose.Schema({
   name: String,
-  email: String,
+  email: String
 });
 const User = mongoose.model('User', UserSchema);
 
