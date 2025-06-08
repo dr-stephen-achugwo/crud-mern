@@ -9,7 +9,13 @@ const app = express();
 // Middleware
 // Enable CORS for all routes
 app.use(cors({
-    origin: ['https://mart4u-wv3y.vercel.app/', 'https://mart4admin.vercel.app/', 'https://mart4u.vercel.app'], 
+    origin: [
+        'https://crud-mern-0zhi.onrender.com/', 
+        'https://mern4.apps.net.ng/', 
+        'https://crud-mern-client-khaki.vercel.app/', 
+        'https://crud-mern-client-dr-stephens-projects.vercel.app/', 
+        'https://crud-mern-client-git-main-dr-stephens-projects.vercel.app/'
+    ], 
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true // Allow credentials (like cookies) to be sent
 }));
